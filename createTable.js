@@ -7,14 +7,12 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "Movies",
+    TableName : "Signs",
     KeySchema: [       
-        { AttributeName: "year", KeyType: "HASH"},  //Partition key
-        { AttributeName: "title", KeyType: "RANGE" }  //Sort key
+        { AttributeName: "NAME", KeyType: "HASH"}
     ],
     AttributeDefinitions: [       
-        { AttributeName: "year", AttributeType: "N" },
-        { AttributeName: "title", AttributeType: "S" }
+        { AttributeName: "NAME", AttributeType: "S" }
     ],
     ProvisionedThroughput: {       
         ReadCapacityUnits: 10, 
