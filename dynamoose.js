@@ -1,5 +1,6 @@
 var dynamoose = require('dynamoose');
 
+//super useful for seeing list/map schema definitions: https://github.com/dynamoosejs/dynamoose/blob/b9830d3b5c2334dba31ceb7b3081bea44162c541/test/Schema.js#L108-L123
 var signSchema = new dynamoose.Schema({
     NAME: String,
     geometry: {
@@ -36,6 +37,7 @@ var signSchema = new dynamoose.Schema({
 var Sign = dynamoose.model('Sign', signSchema);
 
 // Create a new object
+/*
 var sign = new Sign({
     NAME: 'C3-2',
     geometry: {
@@ -64,10 +66,10 @@ var sign = new Sign({
 
 // Save to DynamoDB
 sign.save();
+*/
 
 // Lookup in DynamoDB
 Sign.get('C3-2')
 .then(function (data) {
   console.log(data);
-  //console.log('Never trust a smiling cat. - ' + badCat.name);
 });
